@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <h1>To-Do List</h1>
+    <form method="POST" action="/addTask">
+        <input id="new-title" type="text" class="task-inputs" placeholder="Title">
+        <input id="new-description" type="text" class="task-inputs" placeholder="Description">
+        <input id="new-date" type="date" class="task-inputs">
+    </form>
+    <section id="tasks-container"></section>
+
+    <script src="./scripts/tasks.js"></script>
+</body>
+
+</html>

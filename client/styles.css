@@ -1,0 +1,21 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, bisque, blue);
+}
+
+#tasks-container {
+    padding-top: 20px;
+}
+
+.task-card {
+    padding: 5px;
+    text-align: center;
+    width: 200px;
+    height: 300px;
+    border-radius: 5px;
+    box-shadow: 2px 1px 4px;
+    background-color: lavenderblush;
+}
+
+
+.task-inputs {}

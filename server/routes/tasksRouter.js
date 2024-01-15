@@ -11,7 +11,14 @@ router.get("/getTasks",
     tasksController.getTasks,
     (req, res) => {
         console.log('Inside of /getTasks route');
-        res.status(200).json(res.body);
+        res.status(200).json(res.locals.tasks);
+    });
+
+router.post('/deleteTask',
+    tasksController.deleteTask,
+    (req, res) => {
+        console.log('Inside of /deleteTask route');
+        res.redirect('/tasks/getTasks');
     })
 
 

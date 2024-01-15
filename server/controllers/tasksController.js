@@ -22,4 +22,52 @@ tasksController.getTasks = async (req, res, next) => {
         });
 };
 
+tasksController.addTask = async (req, res, next) => {
+    console.log('Inside of addTask middleware');
+
+    const addTaskValues = [
+        res.cookies.user_id,
+        req.body.title,
+        req.body.description,
+        req.body.due_date,
+        req.body.status
+    ];
+
+    const addTaskStatement = `INSERT INTO tasks (
+        user_id,
+        title,
+        description,
+        due_date,
+        status
+      )
+      VALUES (
+        $1, $2, $3, $4, $5
+      )`;
+
+    await db.query(addTaskStatement, addTaskValues)
+        .then((data) => {
+            console.log('Successfully added task');
+            return next();
+        })
+        .catch((err) => {
+            return next(err);
+        });
+}
+
+tasksController.deleteTask = async (req, res, next) => {
+    console.log('Inside of deleteTask middleware');
+    console.log('req.body.id: ', req.body.id);
+
+    const deleteTaskQuery = `DELETE FROM tasks WHERE id = $1`;
+
+    await db.query(deleteTaskQuery, [req.body.id])
+        .then((data) => {
+            console.log('Successfully deleted task.')
+            return next();
+        })
+        .catch((err) => {
+            return next((err));
+        });
+};
+
 module.exports = tasksController;

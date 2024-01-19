@@ -25,12 +25,14 @@ tasksController.getTasks = async (req, res, next) => {
 tasksController.addTask = async (req, res, next) => {
     console.log('Inside of addTask middleware');
 
+    console.log('new_date: ', req.body.new_date);
+
     const addTaskValues = [
-        res.cookies.user_id,
-        req.body.title,
-        req.body.description,
-        req.body.due_date,
-        req.body.status
+        req.cookies.user_id,
+        req.body.new_title,
+        req.body.new_description,
+        req.body.new_date,
+        req.body.new_status
     ];
 
     const addTaskStatement = `INSERT INTO tasks (

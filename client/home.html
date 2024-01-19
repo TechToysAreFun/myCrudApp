@@ -11,10 +11,17 @@
 <body>
     <h1>To-Do List</h1>
     <h2>Create New Task</h2>
-    <form method="POST" action="/addTask">
-        <input id="new-title" type="text" class="task-inputs" placeholder="Title">
-        <input id="new-description" type="text" class="task-inputs" placeholder="Description">
-        <input id="new-date" type="date" class="task-inputs">
+    <form method="POST" action="/tasks/addTask">
+        <input id="new-title" type="text" name="new_title" class="task-inputs" placeholder="Title">
+        <input id="new-description" type="text" name="new_description" class="task-inputs" placeholder="Description">
+        <input id="new-date" type="date" name="new_date" class="task-inputs">
+        <select id="new-staatus" name="new_status" class="task-inputs">
+            <option id="status-to-do" name="status_to_do">To-Do</option>
+            <option id="status-active" name="status_active">Active</option>
+            <option id="status-complete" name="status_complete">Complete</option>
+            <option id="status-on-hold" name="status_on_hold">On Hold</option>
+        </select>
+        <button type="submit" id="new-task-submit" class="login-buttons" name="new_task_submit">Add Task</button>
     </form>
     <hr>
     <h2>Your Tasks</h2>

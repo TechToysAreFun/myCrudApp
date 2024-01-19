@@ -21,6 +21,12 @@ router.post('/deleteTask',
         res.redirect('/tasks/getTasks');
     })
 
-
+router.post('/addTask',
+    tasksController.addTask,
+    tasksController.getTasks,
+    (req, res) => {
+        console.log('Inside of /addTask route');
+        res.redirect('/tasks/getTasks');
+    });
 
 module.exports = router;

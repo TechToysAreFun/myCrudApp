@@ -4,9 +4,7 @@ const db = require('../models/data')
 const userController = {};
 
 userController.login = async (req, res, next) => {
-
     console.log('Inside of login middleware');
-
     console.log('req.body.username: ', req.body.username);
     console.log('req.body.password: ', req.body.password);
 
